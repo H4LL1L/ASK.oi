@@ -157,10 +157,53 @@ To remove all resources related to Firebase:
 1. Go to **Firebase Console**, select your project, and **delete** it.
 2. Remove API keys from the code to prevent misuse.
 3. Delete the project directory:
+   ```bash
+   rm -rf ASK.Oİ
+   ```
 
-```bash
-rm -rf ASK.Oİ
+---
+
+## 🔥 Firebase Configuration
+
+Your Firebase `google-services.json` file should contain a section like this:
+
+```json
+{
+  "project_info": {
+    "project_number": "85388196896",
+    "project_id": "ask-oi",
+    "storage_bucket": "ask-oi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85388196896:android:7c3610057e952ba8015045",
+        "android_client_info": {
+          "package_name": "com.example.easychatgpt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "YOUR_FIREBASE_CURRENT_KEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
 ```
+
+> **⚠️ Note:** `"YOUR_FIREBASE_CURRENT_KEY"` with your actual Firebase API key.
+
+This method helps keep your API keys secure and prevents them from being exposed in the source code.
+
+> **❗ Note:** If you're using an Android project, consider using **BuildConfig** to pass environment variables securely.
 
 ---
 
